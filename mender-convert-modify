@@ -153,8 +153,8 @@ EOF
 
   log_info "GRUB EFI: ${efi_target_name}"
 
-  run_and_log_cmd "wget -Nq ${MENDER_GRUB_BINARY_STORAGE_URL}/${arch}/${efi_name} -P work/"
-  run_and_log_cmd "wget -Nq ${MENDER_GRUB_BINARY_STORAGE_URL}/${arch}/grub-editenv -P work/"
+  run_and_log_cmd "cp /mender-convert/package/${arch}-${efi_name} work/${efi_name}"
+  run_and_log_cmd "cp /mender-convert/package/${arch}-grub-editenv work/grub-editenv"
 
   run_and_log_cmd "sudo install -m 751 work/grub-editenv work/rootfs/usr/bin/"
 
