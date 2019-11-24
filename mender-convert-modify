@@ -100,7 +100,7 @@ if [ "${MENDER_ENABLE_SYSTEMD}" == "y" ]; then
 fi
 
 if [ "${MENDER_GRUB_EFI_INTEGRATION}" == "y" ]; then
-  run_and_log_cmd "wget -Nq '${MENDER_GRUBENV_URL}' -P work/"
+  run_and_log_cmd "cp /mender-convert/package/grub-mender-grubenv-${MENDER_GRUBENV_VERSION}.tar.gz -P work/${MENDER_GRUBENV_VERSION}.tar.gz"
   run_and_log_cmd "tar xvf work/${MENDER_GRUBENV_VERSION}.tar.gz -C work/"
 
   if [ -z "${MENDER_GRUB_KERNEL_IMAGETYPE}" ]; then
