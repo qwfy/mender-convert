@@ -84,7 +84,8 @@ log_info "Installing Mender client and related files"
 
 deb_arch=$(probe_debian_arch_name)
 deb_name="mender-client_${MENDER_CLIENT_VERSION}-1_${deb_arch}.deb"
-run_and_log_cmd "cp /${deb_name}-mender-commit-4f4bbc0 work/mender-deb/${deb_name}"
+log_info "mender-client deb_name is ${deb_name}"
+run_and_log_cmd "cp /customized-mender/${deb_name} work/mender-deb/${deb_name}"
 
 cd work/mender-deb
 run_and_log_cmd "ar -xv ${deb_name}"

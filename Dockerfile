@@ -41,7 +41,5 @@ RUN chmod 0440 /etc/sudoers.d/secure_path_override
 
 WORKDIR /
 
-COPY mender-client_2.0.1-1_amd64.deb-mender-commit-4f4bbc0 /mender-client_2.0.1-1_amd64.deb-mender-commit-4f4bbc0
-
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
