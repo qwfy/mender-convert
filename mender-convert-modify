@@ -221,5 +221,9 @@ platform_modify
 
 for overlay in "${overlays[@]}"; do
   log_info "Applying rootfs overlay: ${overlay}"
-  run_and_log_cmd "sudo rsync --archive --keep-dirlinks --verbose ${overlay}/ work/rootfs/"
+  if [ -f "${overlay}" ]; then
+    run_and_log_cmd "sudo tar -xf "${overlay}" -C work/rootfs/"
+  else
+    run_and_log_cmd "sudo rsync --archive --keep-dirlinks --verbose ${overlay}/ work/rootfs/"
+  fi
 done
